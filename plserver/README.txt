@@ -1,0 +1,1 @@
+AzureName: nodeQuotesExerciseWeek24
