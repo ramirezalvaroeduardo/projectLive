@@ -85,6 +85,13 @@ var resPostParm	= function(req, res) {
 							}
 						});
 					}
+var getAllParticipants = function(req, res){
+							res.send({'Response':'Arrived to getAllParticipants'})
+}
+
+var addNewParticipant  = function(req, res){
+							res.send({'Response':'Arrived to addNewParticipant'})
+}
 
 app.use(bodyParser.urlencoded({extend: true}));
 app.listen( port, lisApp);
@@ -93,4 +100,7 @@ app.get('/', resApp);
 app.get('/quotes', resGetQte);
 app.get('/quotes/:id', resGetParm);
 app.post('/quotes', resPostParm);
+
+app.get('/getAll', getAllParticipants);
+app.post('/addNew', addNewParticipant);
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/index.css';
-import MainMenu from "./MainMenu";
-import getFAS from './getAwesomeFontThemes';
+import MainMenu from "./js/MainMenu";
+import getFAS from './js/getAwesomeFontThemes';
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import reportWebVitals from './reportWebVitals';
