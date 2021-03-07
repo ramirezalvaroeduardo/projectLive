@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'style/index.css';
+import './style/index.css';
 import MainMenu from "./MainMenu";
 import getFAS from './getAwesomeFontThemes';
 import Button from "react-bootstrap/Button";

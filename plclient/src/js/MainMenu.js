@@ -2,7 +2,7 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import 'style/NavBar.css';
+import './style/NavBar.css';
 import getFAS from './getAwesomeFontThemes';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -30,8 +30,8 @@ function MainMenu( props ) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link onClick={event => refreshScreen( event )}>Home</Nav.Link>
-            <Nav.Link onClick={event => showCandidateForm( event )} href="#AddPlayer">Add Candidate</Nav.Link>
+            <Nav.Link onClick={event => refreshScreen( event )}>Get_Participants</Nav.Link>
+            <Nav.Link onClick={event => showCandidateForm( event )} href="#AddPlayer">Add_Participants</Nav.Link>
             </Nav>
         </Navbar.Collapse>
         </Navbar>
