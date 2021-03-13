@@ -1,19 +1,12 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/index.css';
-import MainMenu from "./js/MainMenu";
-import getFAS from './js/getAwesomeFontThemes';
-import Button from "react-bootstrap/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import App from "./App";
 import reportWebVitals from './reportWebVitals';
 
-let fasArray = getFAS();
-
 ReactDOM.render(
-  <React.StrictMode>
-    <MainMenu/>
-      <FontAwesomeIcon icon={fasArray[847]} />
-  </React.StrictMode>,
+  <App/>,
   document.getElementById('root')
 );
 

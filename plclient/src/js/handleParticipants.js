@@ -1,70 +1,54 @@
 
-class handleParticipants extends React.Component {
-    
-    constructor(props){
-        super(props);
-        this.state = {
-            participants: [],
-            phone: '',
-            name: '',
-            age,
-            addressNumber1: '',
-            addressNumber2: '',
-            city: '',
-            state: '',
-            zip: '',
-            hadCovid: false
-        }
 
-        this.getAll = this.getAll.bind(this);
-        this.addNew = this.addNew.bind(this);
-    }
+let objData = {
+    "phone": "111-111-1111",
+    "name": "NN-NNN",
+    "age": "AAA",
+    "addressNumber1": "AAA AAA AAA",
+    "addressNumber2": "",
+    "city": "CCC",
+    "state": "SSS",
+    "zip": "12345",
+    "hadCovid": "false"
+};
 
-    getAll(event){
-        event.preventDefault();
-        fetch('/plserver/getAllParticipants',
-        {
-            'method': 'GET',
-            'headers': {
-                'content-type': 'application/json',
-                'accept': 'application/json'
-            }    
-        })
-        .then(response => response.json())
-        .then(reponse => {
-            this.setState({
-                participants: response
-            })
-        })
-        .catch(error => { console.log('Error:', error.message)
-        });
-    }
+let postData = new FormData();
+postData.append("json", JSON.stringify(objData));
 
-    addNew(event){
-        event.preventDefault('/plserver/getAllParticipants',{
-            'method': 'POST',
-            'headers': {
-                'content-type': 'application/json',
-                'accept': 'application/json'
-            },
-            'body': JSON.stringify({
-                phone: '111-111-1111',
-                name: 'NN-NNN',
-                age: 'AAA',
-                addressNumber1: 'AAA AAA AAA',
-                addressNumber2: '',
-                city: 'CCC',
-                state: 'SSS',
-                zip: '12345',
-                hadCovid: false
-            })
-        })
-        .then(response => response.json())
-        .then(reponse => {
-            console.log('Response': response)
-        })
-        .catch(error => { 
-            console.log('Error:', error.message)
-        });
-    }
+
+
+async function getAll(){
+    console.log('Requesting All records...');
+    let resp;
+    let res = await fetch(
+        '/getAllParticipants', {
+        'method': 'GET',
+        'headers': {
+            'accept': 'application/x-www-form-urlencoded, application/json',
+        },
+    })
+    .then(resp => {
+        return resp.text();
+    })
+    .then(text => {
+        resp = JSON.parse(text);
+        console.log('Response 2:', resp);
+        return 
+    })
 }
+
+async function addNew(newPart){
+    console.log('Got to handleParticipant.AddNew...');
+    console.log('Data', postData);
+    let res = await fetch(
+        '/addNewParticipant', {
+        'method': 'post',
+        'headers': {
+            'content-type': 'application/x-www-form-urlencoded'
+        },
+        body: JSON.stringify(newPart)
+    });
+    return await res;
+}
+
+export {getAll, addNew}
