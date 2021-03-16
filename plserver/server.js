@@ -10,8 +10,7 @@ var lisApp		= function() {
 				}
 
 var getAllParticipants = function(req, res){
-	console.log('Response: Arrived to getAllParticipants.');
-	db.all('SELECT * FROM projectlife', function(err, rows){
+	db.all('SELECT rowid, * FROM projectlife', function(err, rows){
 		if(err){
 			res.send(err.message);
 		}else{
@@ -22,7 +21,6 @@ var getAllParticipants = function(req, res){
 }
 
 var addNewParticipant  = function(req, res){
-	console.log('Server: Arrived to addNewParticipant...');
 	let newPart = JSON.parse(
 		JSON.stringify(req.body)
 		.replace(/\{\"/, '' )
@@ -52,8 +50,6 @@ var addNewParticipant  = function(req, res){
 
 app.use(bodyParser.urlencoded({extend: true}));
 app.listen( port, lisApp);
-
-app.get('/', resApp);
 
 app.get('/getAllParticipants', getAllParticipants);
 app.post('/addNewParticipant', addNewParticipant);

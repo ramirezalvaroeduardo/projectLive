@@ -1,0 +1,26 @@
+
+.AddNewDiv, .GetAllDiv {
+    display: none;
+    margin: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: left;
+    justify-content: left;
+    border: 1px solid rgb(158, 153, 129);
+    border-radius: 0.5rem;
+    color:  rgb(56, 151, 56);
+    background-color: rgb(224, 243, 222);
+}
+
+.AddNewForm {
+    display: block;
+    padding: 0.5rem 1rem 0 1rem;
+}
+
+@media (max-width: 64rem) {
+    li {
+        font-size: .7rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+}
