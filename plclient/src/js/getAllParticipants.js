@@ -48,7 +48,6 @@ function GetAllParts() {
 
 function GetAllParticipants(parts){
 
-    console.log( 'Parts getAllParts..:', parts )
     if(parts === undefined || parts.length <= 0){
         parts = [];
         parts.push({

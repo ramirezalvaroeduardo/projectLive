@@ -1,9 +1,6 @@
 
-import {showArea} from '../js/general'
-
 async function getAll(){
     console.log('Requesting All records...');
-    let resp;
     let res = await fetch(
         '/getAllParticipants', {
         'method': 'GET',
