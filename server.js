@@ -62,5 +62,5 @@ app.get('/', mainPage);
 app.get('/getAllParticipants', getAllParticipants);
 app.post('/addNewParticipant', addNewParticipant);
 
-app.listen( port, lisApp);
+app.listen(process.env.PORT || port, lisApp);
 
