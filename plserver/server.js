@@ -1,13 +1,23 @@
 
 var express		= require('express');
 var bodyParser	= require('body-parser');
+var path		= require('path');
 var sqlite3		= require('sqlite3');
 var db			= new sqlite3.Database('projectlife.db');
 var app			= express();
 var port		= 3010;
-var lisApp		= function() {
-				console.log('App listening on port [' + port + ']');
-				}
+
+				
+app.use(bodyParser.urlencoded({extend: true}));
+app.use(express.static(path.join(__dirname, '../plclient/build')));
+
+var lisApp = function() {
+	console.log('App listening on port [' + port + ']');
+}
+
+var mainPage = function(req,res){
+	res.sendFile(path.join(__dirname, '../plclient/build/index.html'));
+}
 
 var getAllParticipants = function(req, res){
 	db.all('SELECT rowid, * FROM projectlife', function(err, rows){
@@ -48,9 +58,9 @@ var addNewParticipant  = function(req, res){
 	res.send({'Server_Response':'Arrived to addNewParticipant'});
 }
 
-app.use(bodyParser.urlencoded({extend: true}));
-app.listen( port, lisApp);
-
+app.get('/', mainPage);
 app.get('/getAllParticipants', getAllParticipants);
 app.post('/addNewParticipant', addNewParticipant);
+
+app.listen( port, lisApp);
 
