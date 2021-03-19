@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import '../style/Participant.css';
 import {getAll} from './handleParticipants';
@@ -74,7 +75,7 @@ function GetAllParticipants(parts){
 
     return (
         <div id='allPart' className='GetAllDiv'>
-            <h3>Participant</h3>
+            <h3>Participant <Button variant="success" type="submit" onClick={event => GetAllParts()}>Get All</Button></h3>
             <Table responsive='xl' striped bordered hover>
                 <thead>
                     <tr>

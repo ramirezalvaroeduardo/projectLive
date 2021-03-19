@@ -2,6 +2,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {addNew} from '../js/handleParticipants';
+import {GetAllParts} from "./getAllParticipants";
 import '../style/Participant.css';
 
 function addNewParticipant(event){
@@ -26,16 +27,12 @@ function addNewParticipant(event){
     addNew(newParticipant)
     .then(response => {
         console.log('POST addNew - from Server:', response);
-      //this.setState({
-      //    participants: response
-      //})
+        GetAllParts();
     })
     .catch(error => { 
         console.log('Error:', error.message)
     });
 }
-
-//<!--Form.Control name='Gender' type='text' placeholder='Gender' required/-->
 
 function AddNewParticipantForm(){
     return(
@@ -124,7 +121,7 @@ function AddNewParticipantForm(){
                     <Form.Check id='HasTransport' custom type='switch' label='Has Transportation' name='HasTransport'/>
                 </Form.Group>
                 <Form.Group className='form-group col'>
-                    <Button variant="primary" type="submit" onClick={event => addNewParticipant(event)}>
+                    <Button variant="success" type="submit" onClick={event => addNewParticipant(event)}>
                         Submit
                     </Button>
                 </Form.Group>

@@ -5,7 +5,7 @@ var path		= require('path');
 var sqlite3		= require('sqlite3');
 var db			= new sqlite3.Database('projectlife.db');
 var app			= express();
-var port		= 24173;
+var port		= 3010;
 
 				
 app.use(bodyParser.urlencoded({extend: true}));
