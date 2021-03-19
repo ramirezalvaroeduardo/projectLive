@@ -12,7 +12,7 @@ let fasArray = getFAS();
 function MainMenu( props ) {
     return (
         <Navbar bg="success" expand="lg" variant="dark" className='navbar-custom'>
-        <Navbar.Brand href="#home"><FontAwesomeIcon icon={fasArray[847]}/>&nbsp;&nbsp;Project Live</Navbar.Brand>
+        <Navbar.Brand href="#home"><FontAwesomeIcon icon={fasArray[847]}/>&nbsp;&nbsp;Project Life</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
